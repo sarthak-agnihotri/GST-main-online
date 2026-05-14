@@ -27,15 +27,15 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker compose down --remove-orphans || true'
-                sh 'docker compose up -d --build'
+                sh '/usr/bin/docker compose down --remove-orphans || true'
+                sh '/usr/bin/docker compose up -d --build'
             }
         }
     }
 
     post {
         always {
-            sh 'docker system prune -f'
+            sh '/usr/bin/docker system prune -f'
         }
         success {
             echo 'Pipeline succeeded!'
