@@ -1,11 +1,5 @@
-pipeline {
+﻿pipeline {
     agent any
-
-    environment {
-        DOCKER_IMAGE_BACKEND = 'gst-backend'
-        DOCKER_IMAGE_FRONTEND = 'gst-frontend'
-        DOCKER_TAG = "${env.BUILD_NUMBER}"
-    }
 
     stages {
         stage('Checkout') {
@@ -14,11 +8,10 @@ pipeline {
             }
         }
 
-        stage('Build Backend') {
+        stage('Install Backend') {
             steps {
                 dir('backend') {
                     sh 'npm install'
-                    sh 'npm run test || true' // Skip if no tests
                 }
             }
         }
@@ -32,19 +25,10 @@ pipeline {
             }
         }
 
-        stage('Build Docker Images') {
-            steps {
-                sh "docker build -t ${DOCKER_IMAGE_BACKEND}:${DOCKER_TAG} backend/"
-                sh "docker build -t ${DOCKER_IMAGE_FRONTEND}:${DOCKER_TAG} frontend/"
-                sh "docker tag ${DOCKER_IMAGE_BACKEND}:${DOCKER_TAG} ${DOCKER_IMAGE_BACKEND}:latest"
-                sh "docker tag ${DOCKER_IMAGE_FRONTEND}:${DOCKER_TAG} ${DOCKER_IMAGE_FRONTEND}:latest"
-            }
-        }
-
         stage('Deploy') {
             steps {
-                sh 'docker compose down || true'
-                sh 'docker compose up -d'
+                sh 'docker compose down --remove-orphans || true'
+                sh 'docker compose up -d --build'
             }
         }
     }

@@ -1,13 +1,13 @@
-# Jenkins CI/CD Setup
+﻿# Jenkins CI/CD Setup
 
-This project includes a Jenkins pipeline for continuous integration and deployment.
+This project includes a Jenkins pipeline for continuous integration and deployment using Docker Compose.
 
 ## Starting Jenkins
 
 1. Ensure Docker is running
 2. From the project root (`GST-main`), run:
    ```bash
-   docker-compose up jenkins
+   docker compose up -d jenkins
    ```
 
 3. Jenkins will be available at http://localhost:8080
@@ -16,7 +16,7 @@ This project includes a Jenkins pipeline for continuous integration and deployme
 
 1. Get the initial admin password:
    ```bash
-   docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+   docker compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
    ```
 
 2. Follow the web setup wizard to install suggested plugins and create an admin user.
@@ -36,22 +36,21 @@ This project includes a Jenkins pipeline for continuous integration and deployme
 
 ## Pipeline Stages
 
-The Jenkinsfile includes the following stages:
+The `Jenkinsfile` includes the following stages:
 - **Checkout**: Pulls the latest code
-- **Build Backend**: Installs dependencies and runs tests
+- **Install Backend**: Installs backend dependencies
 - **Build Frontend**: Installs dependencies and builds the React app
-- **Build Docker Images**: Creates Docker images for backend and frontend
-- **Deploy**: Stops old containers and starts new ones
+- **Deploy**: Runs `docker compose up -d --build`
 
 ## Notes
 
-- Jenkins runs with Docker socket access for building images
-- The pipeline uses Docker Compose for deployment
-- Build artifacts are cleaned up automatically
-- MongoDB data persists across deployments
+- The frontend is available at http://localhost:3001 after deploy
+- The pipeline uses Docker Compose deployment
+- `docker system prune -f` runs after every build to clean up unused resources
+- MongoDB data persists in the local Docker volume
 
 ## Stopping Jenkins
 
 ```bash
-docker-compose down
+docker compose down
 ```
