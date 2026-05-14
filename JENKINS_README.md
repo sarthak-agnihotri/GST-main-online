@@ -40,7 +40,7 @@ The `Jenkinsfile` includes the following stages:
 - **Checkout**: Pulls the latest code
 - **Install Backend**: Installs backend dependencies
 - **Build Frontend**: Installs dependencies and builds the React app
-- **Deploy**: Runs `docker compose up -d --build`
+- **Deploy**: Runs `docker compose up -d --build` with alternate ports to avoid conflicts with local docker stacks
 
 ## Notes
 

@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        BACKEND_PORT = '6000'
+        FRONTEND_PORT = '3002'
+        MONGO_PORT = '27018'
+    }
+
     stages {
         stage('Checkout') {
             steps {

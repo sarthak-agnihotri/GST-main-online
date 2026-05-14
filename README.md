@@ -19,6 +19,8 @@ This will start:
 - frontend: http://localhost:3001
 - mongo: mongodb://localhost:27017
 
+> Jenkins pipeline deployment uses alternate ports to avoid collisions with a local running stack. The pipeline deploys backend on `6000`, frontend on `3002`, and MongoDB on `27018`.
+
 To stop the stack:
 
 ```bash
