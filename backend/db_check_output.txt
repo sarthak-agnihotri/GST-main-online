@@ -1,0 +1,31 @@
+﻿[dotenv@17.2.3] injecting env (4) from .env -- tip: ΓÜÖ∩╕Å  write to custom object with { processEnv: myObject }
+MongoDB Connected
+
+=== USER DATA IN DATABASE ===
+
+Name: Sarthak Agnihotri
+Email: sarthak0144@gmail.com
+Role: admin
+
+--- Business Information ---
+Business Name: Not set
+Business Type: Not set
+Industry: Not set
+PAN Number: Not set
+Phone: Not set
+Business Address: {}
+
+--- GST Details ---
+GSTIN: Not set
+GST Registration Date: Not set
+State of Registration: Not set
+HSN Codes: []
+
+--- Preferences ---
+Preferences: {
+  theme: 'system',
+  language: 'en',
+  dateFormat: 'DD/MM/YYYY',
+  currency: 'INR',
+  emailNotifications: true
+}
