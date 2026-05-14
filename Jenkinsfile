@@ -27,15 +27,15 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh '/usr/bin/docker compose down --remove-orphans || true'
-                sh '/usr/bin/docker compose up -d --build'
+                sh 'DOCKER_API_VERSION=1.53 /usr/bin/docker compose down --remove-orphans || true'
+                sh 'DOCKER_API_VERSION=1.53 /usr/bin/docker compose up -d --build'
             }
         }
     }
 
     post {
         always {
-            sh '/usr/bin/docker system prune -f'
+            sh 'DOCKER_API_VERSION=1.53 /usr/bin/docker system prune -f'
         }
         success {
             echo 'Pipeline succeeded!'
