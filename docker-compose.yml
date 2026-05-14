@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build: ./backend
@@ -17,7 +15,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:80"
+      - "3001:80"
     depends_on:
       - backend
     networks:
@@ -33,6 +31,8 @@ services:
       - gst-network
 
   jenkins:
+    profiles:
+      - ci
     build: ./jenkins
     user: root
     ports:
