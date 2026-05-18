@@ -21,7 +21,7 @@ manage business profile details
 
 provide admin controls for managing users and invoices
 
-2. Purpose of the Project
+# 2. Purpose of the Project
 The main purpose of this project is to simplify GST management for small businesses and shop owners.
 
 Normally, businesses manage invoices and GST calculations manually, which can take a lot of time and may lead to mistakes. Our software automates these tasks and provides a user-friendly system where everything can be managed digitally from one platform.
@@ -40,7 +40,7 @@ maintain secure user authentication
 
 improve business efficiency
 
-3. Project Architecture
+# 3. Project Architecture
 The project follows a client-server architecture.
 
 Main Components
@@ -65,7 +65,7 @@ Jenkinsfile → CI/CD pipeline configuration
 
 jenkins/ → Jenkins Docker setup
 
-4. Backend Implementation
+# 4. Backend Implementation
 Backend Technologies Used
 Node.js
 
@@ -141,7 +141,7 @@ View all invoices
 
 Administrative controls
 
-5. API Endpoints
+# 5. API Endpoints
 Authentication APIs
 POST /api/auth/register → Register new user
 
@@ -178,7 +178,7 @@ GET /api/reports/yearly → Yearly reports
 
 GET /api/reports/export-pdf → Export report to PDF
 
-6. Database Models
+# 6. Database Models
 User Model
 The User model stores:
 
@@ -213,7 +213,7 @@ invoice status
 
 user reference
 
-7. Frontend Implementation
+# 7. Frontend Implementation
 Frontend Technologies Used
 React.js
 
@@ -292,7 +292,7 @@ Documentation pages
 
 GST calculator
 
-8. Deployment and DevOps
+# 8. Deployment and DevOps
 Docker Implementation
 Docker is used to containerize the entire project so that the application runs consistently on any system without configuration issues.
 
