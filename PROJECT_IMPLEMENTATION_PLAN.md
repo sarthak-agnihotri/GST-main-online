@@ -3,9 +3,9 @@
 Our GST Software is a complete full-stack web application designed for small businesses to manage GST-related work in an easy and organized way.
 The project is built using the MERN stack, where the backend is developed using Node.js and Express.js, the frontend is developed using React.js, and MongoDB is used as the database.
 
-To make deployment and management easier, we also integrated Docker and Jenkins for containerization and CI/CD automation.
+To make deployment and management easier, I also integrated Docker and Jenkins for containerization and CI/CD automation.
 
-The software allows users to:
+# The software allows users to:
 
 securely create accounts and log in
 
