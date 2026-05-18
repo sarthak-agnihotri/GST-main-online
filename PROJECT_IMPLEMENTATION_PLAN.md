@@ -1,5 +1,4 @@
-# GST Software Implementation Plan
-1. Project Overview
+# 1. Project Overview
 Our GST Software is a complete full-stack web application designed for small businesses to manage GST-related work in an easy and organized way.
 The project is built using the MERN stack, where the backend is developed using Node.js and Express.js, the frontend is developed using React.js, and MongoDB is used as the database.
 
